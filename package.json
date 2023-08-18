@@ -1,0 +1,35 @@
+{
+  "name": "PACKAGE_NAME",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "jquery",
+    "jquery-plugin",
+    "jqueryui"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no demo specified\\\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "HichemTab <konanhichemsinshi@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME/issues"
+  },
+  "homepage": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME#readme",
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "terser-webpack-plugin": "^5.3.9"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
