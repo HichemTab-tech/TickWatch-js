@@ -1,6 +1,12 @@
-#Default npm project
+# Default npm project
 
-### usage:
+## Clone this project
+
+```bash
+git clone https://github.com/HichemTab-tech/default-npm-project
+```
+
+## usage:
 
 replace the following in your the whole project:
 
