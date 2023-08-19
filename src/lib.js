@@ -1,3 +1,4 @@
+import helpers from 'npm-jquery-plugin-helpers';
 export const LIBRARY_FUNCTION_NAME = function (options = {}, ...args) {
     let results = [];
 

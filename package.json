@@ -24,7 +24,8 @@
   "homepage": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME#readme",
   "dependencies": {
     "jquery": "^3.7.0",
-    "terser-webpack-plugin": "^5.3.9"
+    "terser-webpack-plugin": "^5.3.9",
+    "npm-jquery-plugin-helpers": "^1.0.0"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",
