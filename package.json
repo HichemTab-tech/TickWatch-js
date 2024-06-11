@@ -5,7 +5,19 @@
   "keywords": [
     "jquery",
     "jquery-plugin",
-    "jqueryui"
+    "jqueryui",
+    "clock",
+    "timer",
+    "countdown",
+    "countup",
+    "digital-clock",
+    "time-management",
+    "time-display",
+    "electronic-clock",
+    "time-tracking",
+    "clock-widget",
+    "real-time",
+    "time-utilities"
   ],
   "main": "index.js",
   "scripts": {
