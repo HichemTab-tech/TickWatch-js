@@ -1,0 +1,11 @@
+.TickWatch-clock {
+  height: 40px;
+  margin: 20px;
+
+  .clock-cell.active-cell{
+    opacity: 1;
+  }
+  .clock-cell.inactive-cell{
+    opacity: 0.125;
+  }
+}

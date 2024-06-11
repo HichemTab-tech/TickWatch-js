@@ -1,7 +1,7 @@
 {
-  "name": "PACKAGE_NAME",
+  "name": "tickwatch-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "TickWatch is a jQuery plugin that provides a customizable electronic clock with start, stop, and set functionalities. It can count up or down and display time in various formats.",
   "keywords": [
     "jquery",
     "jquery-plugin",
@@ -10,27 +10,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \\\"Error: no demo specified\\\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "serve": "npx vite",
+    "build": "npx vite build"
   },
   "author": "HichemTab <konanhichemsinshi@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME.git"
+    "url": "https://github.com/HichemTab-tech/TickWatch-js.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME/issues"
+    "url": "https://github.com/HichemTab-tech/TickWatch-js/issues"
   },
-  "homepage": "https://github.com/HichemTab-tech/GITHUB_REPO_NAME#readme",
+  "homepage": "https://github.com/HichemTab-tech/TickWatch-js#readme",
   "dependencies": {
     "jquery": "^3.7.0",
-    "terser-webpack-plugin": "^5.3.9",
     "npm-jquery-plugin-helpers": "^1.0.0"
   },
   "devDependencies": {
-    "css-loader": "^6.8.1",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "sass": "^1.77.4",
+    "vite": "^5.0.11",
+    "rollup-plugin-terser": "^7.0.2",
+    "terser-webpack-plugin": "^5.3.9",
+    "vite-plugin-banner": "^0.7.1"
   }
 }

@@ -1,8 +1,8 @@
-import './src/style.css';
-import {LIBRARY_FUNCTION_NAME} from "./src/LIBRARY_MAIN_SCRIPT_NAME";
+import '@scss/style.scss';
+import {TickWatch} from "./src/TickWatch";
 
 (function ($) {
-    $.fn.LIBRARY_FUNCTION_NAME = LIBRARY_FUNCTION_NAME;
+    $.fn.TickWatch = TickWatch;
 })(jQuery);
 
-export { LIBRARY_FUNCTION_NAME };
+export { TickWatch };
