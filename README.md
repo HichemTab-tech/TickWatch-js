@@ -54,7 +54,7 @@ npm install tickwatch-js
 
 You can also include TickWatch directly from a CDN by adding the following script tag to your HTML file:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/tickwatch-js@latest/dist/tickwatch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tickwatch-js@latest/dist/TickWatch.min.js"></script>
 ```
 
 ### Local Download
@@ -62,7 +62,7 @@ You can also include TickWatch directly from a CDN by adding the following scrip
 If you prefer to host the library locally,
 you can download the latest release from the source code and include it in your project:
 ```html
-<script src="path/to/tickwatch.min.js"></script>
+<script src="path/to/TickWatch.min.js"></script>
 ```
 
 ## Usage
@@ -80,7 +80,7 @@ To use the TickWatch jQuery Plugin, follow these steps:
 <button id="setBtn">Set to 5 minutes</button>
 
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="path/to/tickwatch.min.js"></script>
+<script src="path/to/TickWatch.min.js"></script>
 <script>
 $(document).ready(function() {
     const options = {
@@ -122,7 +122,7 @@ $(document).ready(function() {
     <button id="setBtn">Set to 5 minutes</button>
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="path/to/tickwatch.min.js"></script>
+    <script src="path/to/TickWatch.min.js"></script>
     <script>
     $(document).ready(function() {
         $('#myClock').TickWatch({
