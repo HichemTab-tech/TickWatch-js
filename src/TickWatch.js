@@ -28,12 +28,14 @@ export const TickWatch = function (options = {}, ...args) {
             if (time.split(":").length === data.partsLength.length) {
                 data.current = time;
                 updateData(data);
+                update(getElement(data));
             }
             return results;
         },
         clear: function (results, data) {
             data.current = data.settings.startTime;
             updateData(data);
+            update(getElement(data));
             getElement(data).trigger('TickWatch.clear', [data]);
             return results;
         },

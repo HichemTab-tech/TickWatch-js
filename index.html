@@ -13,7 +13,9 @@
         <div class="timer">
 
         </div>
-        <button class="btn btn-primary mt-3" id="ok">OK</button>
+        <button class="btn btn-primary mt-3" id="start">Start</button>
+        <button class="btn btn-primary mt-3" id="stop">Stop</button>
+        <button class="btn btn-primary mt-3" id="clear">Clear</button>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -27,19 +29,21 @@
 </script>-->
 <script type="module">
     import './index.js';
-    const timerElement = $('.timer');
-    timerElement.TickWatch({
-        direction: 'down',
-        startTime: "00:00:10",
-    });
-    timerElement.TickWatch('start');
 
     $(document).ready(function() {
-        $('#ok').on('click', function () {
-            timerElement.TickWatch('option', 'direction', 'up');
-            timerElement.on('TickWatch.update', function (e, data) {
-                console.log('update', data);
-            });
+        const timerElement = $('.timer');
+        timerElement.TickWatch({
+            direction: 'down',
+            startTime: "00:00:10",
+        });
+        $('#stop').on('click', function () {
+            timerElement.TickWatch('stop');
+        });
+        $('#start').on('click', function () {
+            timerElement.TickWatch('start');
+        });
+        $('#clear').on('click', function () {
+            timerElement.TickWatch('clear');
         });
     });
 </script>

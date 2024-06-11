@@ -1,5 +1,5 @@
 {
-  "name": "tickwatch-js",
+  "name": "tickwatchjs",
   "version": "1.0.0",
   "description": "TickWatch is a jQuery plugin that provides a customizable electronic clock with start, stop, and set functionalities. It can count up or down and display time in various formats.",
   "keywords": [
