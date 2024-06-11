@@ -19,15 +19,26 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<!--<script src="dist/TickWatch.js"></script>
+<script src="dist/TickWatch.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#ok').on('click', function () {
-
+        const timerElement = $('.timer');
+        timerElement.TickWatch({
+            direction: 'down',
+            startTime: "00:00:10",
+        });
+        $('#stop').on('click', function () {
+            timerElement.TickWatch('stop');
+        });
+        $('#start').on('click', function () {
+            timerElement.TickWatch('start');
+        });
+        $('#clear').on('click', function () {
+            timerElement.TickWatch('clear');
         });
     });
-</script>-->
-<script type="module">
+</script>
+<!--<script type="module">
     import './index.js';
 
     $(document).ready(function() {
@@ -46,6 +57,6 @@
             timerElement.TickWatch('clear');
         });
     });
-</script>
+</script>-->
 </body>
 </html>
