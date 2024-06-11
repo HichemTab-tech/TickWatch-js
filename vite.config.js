@@ -3,7 +3,7 @@ import path from 'path';
 import { terser } from 'rollup-plugin-terser';
 import banner from 'vite-plugin-banner';
 
-const bannerText = `/*!
+const bannerText = `/*
  * TickWatch-js v1.0.0
  * (c) HichemTech
  * Released under the MIT License.
@@ -46,9 +46,6 @@ export default defineConfig(({ command }) => {
                 ],
             },
         },
-        plugins: [
-            banner(bannerText),
-        ],
         server: {
             port: 5001
         },

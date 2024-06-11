@@ -1,0 +1,8 @@
+/*
+ * TickWatch-js v1.0.0
+ * (c) HichemTech
+ * Released under the MIT License.
+ * Github: github.com/HichemTab-tech/TickWatch-js
+ */
+
+.TickWatch-clock{height:40px;margin:20px}.TickWatch-clock .clock-cell.active-cell{opacity:1}.TickWatch-clock .clock-cell.inactive-cell{opacity:.125}
