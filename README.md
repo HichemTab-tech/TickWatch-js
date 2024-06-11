@@ -1,5 +1,3 @@
-Certainly! Here’s a complete README file for the `TickWatch` jQuery plugin, tailored to your specifications.
-
 # TickWatch jQuery Plugin
 
 ## Overview
