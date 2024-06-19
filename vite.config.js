@@ -4,7 +4,7 @@ import { terser } from 'rollup-plugin-terser';
 import banner from 'vite-plugin-banner';
 
 const bannerText = `/*
- * TickWatch-js v1.0.0
+ * TickWatch-js v1.0.1
  * (c) HichemTech
  * Released under the MIT License.
  * Github: github.com/HichemTab-tech/TickWatch-js
