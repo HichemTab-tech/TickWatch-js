@@ -1,4 +1,4 @@
-import '@scss/style.scss';
+import './src/scss/style.scss';
 import {TickWatch} from "./src/TickWatch";
 
 (function ($) {

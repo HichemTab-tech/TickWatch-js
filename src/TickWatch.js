@@ -1,4 +1,4 @@
-import {ClockSVG} from "@js/clock-creator";
+import {ClockSVG} from "./js/clock-creator";
 import {isDefined} from "npm-jquery-plugin-helpers/src/helpers";
 
 export const TickWatch = function (options = {}, ...args) {

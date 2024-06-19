@@ -4,19 +4,12 @@ import { terser } from 'rollup-plugin-terser';
 import banner from 'vite-plugin-banner';
 
 const bannerText = `/*
- * TickWatch-js v1.0.1
+ * TickWatch-js v1.0.2
  * (c) HichemTech
  * Released under the MIT License.
  * Github: github.com/HichemTab-tech/TickWatch-js
  */
 `;
-
-const aliasesStrings = ['js', 'scss', 'images'];
-
-const aliases = {};
-aliasesStrings.forEach(alias => {
-    aliases[`@${alias}`] = path.resolve(__dirname, `src/${alias}/`);
-});
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig(({ command }) => {
@@ -48,11 +41,6 @@ export default defineConfig(({ command }) => {
         },
         server: {
             port: 5001
-        },
-        resolve: {
-            alias: {
-                ...aliases
-            }
         }
     };
 });
