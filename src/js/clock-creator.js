@@ -1,7 +1,7 @@
-const ClockSVG = (id = "defaultId", parts = ['seconds', 'minutes', 'hours']) => {
-    const viewBoxWidth = 16 + 22 + 42 * (parts.length - 1);
+const ClockSVG = (id = "defaultId", parts = ['seconds', 'minutes', 'hours'], displayOnly = false) => {
+    const viewBoxWidth = 16 + (displayOnly ? 3 : 22) + (displayOnly ? 21 : 42) * (parts.length - 1);
     const viewBoxHeight = 36;
-    const partHeight = 42;
+    const partHeight = displayOnly ? 20 : 42;
 
     const createParts = (idPrefix, partsIds) => {
         let parts = [];
@@ -18,7 +18,7 @@ const ClockSVG = (id = "defaultId", parts = ['seconds', 'minutes', 'hours']) => 
         for (let i = 0; i < partsIds.length; i++) {
             parts.push(`  <g id=${idPrefix}_${partsIds[i]}>
                             ${part(partsIds[i], i * partHeight, true)}
-                            ${part(partsIds[i], i * partHeight + 18)}
+                            ${displayOnly ? '' : part(partsIds[i], i * partHeight + 18)}
                         </g>
                     `);
         }
@@ -38,8 +38,8 @@ const ClockSVG = (id = "defaultId", parts = ['seconds', 'minutes', 'hours']) => 
 
     return `
                 <svg class='TickWatch-clock' id='${id}' viewBox='0 36 ${viewBoxWidth} ${viewBoxHeight}' xmlns='http://www.w3.org/2000/svg'>
-                    ${createParts(id, parts, 36)}
-                    ${createDots(parts.length - 1)}
+                    ${createParts(id, parts)}
+                    ${displayOnly ? '' : createDots(parts.length - 1)}
                 </svg>
             `;
 }

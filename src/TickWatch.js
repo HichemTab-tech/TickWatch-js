@@ -22,13 +22,20 @@ export const TickWatch = function (options = {}, ...args) {
             return results;
         },
         set: function (results, data, args) {
-            let time = args[0];
-            if (isDefined(time)) time = time.trim();
-            else time = "";
-            if (time.split(":").length === data.partsLength.length) {
-                data.current = time;
+            if (data.settings.displayOnly) {
+                data.current = parseInt(args[0]);
                 updateData(data);
                 update(getElement(data));
+            }
+            else{
+                let time = args[0];
+                if (isDefined(time)) time = time.trim();
+                else time = "";
+                if (time.split(":").length === data.partsLength.length) {
+                    data.current = time;
+                    updateData(data);
+                    update(getElement(data));
+                }
             }
             return results;
         },
@@ -77,6 +84,8 @@ export const TickWatch = function (options = {}, ...args) {
                     endTime: null,
                     activeCellClass: 'active-cell',
                     inactiveCellClass: 'inactive-cell',
+                    displayOnly: false,
+                    displaySize: null,
                 },
                 options
             );
@@ -105,22 +114,39 @@ export const TickWatch = function (options = {}, ...args) {
                 current: null
             };
 
-            let [minVal, maxVal] = [getInitialTime(data.settings.partsKeys.length), getFinalTime(parts)]
-
-            if (data.settings.startTime === null) {
-                data.settings.startTime = data.settings.direction === "up" ? minVal : maxVal;
+            if (data.settings.displayOnly) {
+                const defaultDisplaySize = 3;
+                data.settings.displaySize = data.settings.displaySize === null ? defaultDisplaySize : data.settings.displaySize;
+                data.settings.displaySize = typeof data.settings.displaySize === 'number' ? data.settings.displaySize : parseInt(/** @type {string} */data.settings.displaySize);
+                data.settings.displaySize = isNaN(data.settings.displaySize) ? defaultDisplaySize : data.settings.displaySize;
+                data.current = 0;
             }
-            if (data.settings.endTime === null) {
-                data.settings.endTime = data.settings.direction !== "up" ? minVal : maxVal;
-            }
+            else {
+                let [minVal, maxVal] = [getInitialTime(data.settings.partsKeys.length), getFinalTime(parts)]
 
-            data.current = settings.startTime;
+                if (data.settings.startTime === null) {
+                    data.settings.startTime = data.settings.direction === "up" ? minVal : maxVal;
+                }
+                if (data.settings.endTime === null) {
+                    data.settings.endTime = data.settings.direction !== "up" ? minVal : maxVal;
+                }
+
+                data.current = settings.startTime;
+            }
 
             //save the settings of the element
             $(this).data('TickWatch', data);
             $(this).attr('data-TickWatch-id', idSuffix);
 
-            let $clockDom = $(ClockSVG("TickWatch_"+idSuffix, Object.keys(data.parts)));
+
+            if (data.settings.displayOnly) {
+                let arrayParts = (new Array(/** @type {number} */data.settings.displaySize)).fill("").map((n, i) => "displayPart_"+(i+1));
+                data.parts = {};
+                for (let i = 0; i < arrayParts.length; i++) {
+                    data.parts[arrayParts[i]] = null;
+                }
+            }
+            let $clockDom = $(ClockSVG("TickWatch_"+idSuffix, Object.keys(data.parts), data.settings.displayOnly));
             $clockDom.appendTo($parent);
             update($(this));
         }
@@ -154,10 +180,9 @@ const display = (pathId, a, n, data) => {
         [1, 0, 1, 0, 0, 1, 0], // 7
         [1, 1, 1, 1, 1, 1, 1], // 8
         [1, 1, 1, 1, 0, 1, 1]  // 9
-    ]
-
-    n = number[n]
-    let i = 0
+    ];
+    n = number[n];
+    let i = 0;
     while (i < n.length) {
         const $crystal = $(`#${pathId}_${a}_${(i + 1)}`);
         if (n[i] === 0) {
@@ -168,7 +193,7 @@ const display = (pathId, a, n, data) => {
             $crystal.removeClass(data.settings.inactiveCellClass);
             $crystal.addClass(data.settings.activeCellClass);
         }
-        i++
+        i++;
     }
 }
 
@@ -206,15 +231,24 @@ const update = ($clockElement) => {
     let data = $clockElement.data('TickWatch');
     getElement(data).trigger('TickWatch.update', [data]);
     let currentTime = data.current;
-    let currentTimeParts = currentTime.split(":");
+    let currentTimeParts;
+    if (data.settings.displayOnly) {
+        currentTimeParts = currentTime.toString().split("");
+        for (let i = currentTimeParts.length; i < data.settings.displaySize; i++) {
+            currentTimeParts.unshift("0");
+        }
+    }
+    else{
+        currentTimeParts = currentTime.split(":")
+    }
     currentTimeParts.reverse();
     let partsIds = Object.keys(data.parts);
     for (let i = partsIds.length - 1; i >= 0; i--) {
         let partId = partsIds[i];
         let partValue = currentTimeParts[i];
-        let partValueParts = partValue.split("");
+        let partValueParts = data.settings.displayOnly ? [partValue] : partValue.split("");
         for (let j = 0; j < partValueParts.length; j++) {
-            display(`TickWatch_${data.idSuffix}_${partId}`, j === 1 ? "a" : "b", parseInt(partValueParts[j]), data);
+            display(`TickWatch_${data.idSuffix}_${partId}`, j === (partValueParts.length-1) ? "a" : "b", parseInt(partValueParts[j]), data);
         }
     }
 }

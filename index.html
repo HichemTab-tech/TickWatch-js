@@ -11,12 +11,29 @@
 <div class="container">
     <div class="card mt-5 p-3">
         <h1 class="h1">TickWatch-js - Basic Usage</h1>
-        <div class="timer">
+        <div class="row">
+            <div class="col-md-6 row px-5">
+                <h2 class="h2">Timer</h2>
+                <div class="timer d-flex justify-content-center">
 
+                </div>
+                <button class="btn btn-primary mt-3" id="start">Start</button>
+                <button class="btn btn-primary mt-3" id="stop">Stop</button>
+                <button class="btn btn-primary mt-3" id="clear">Clear</button>
+            </div>
+            <div class="col-md-6 row px-5">
+                <h2 class="h2">Display</h2>
+                <div class="display d-flex justify-content-center">
+
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Time</label>
+                    <input type="text" class="form-control" id="number" name="number" placeholder="number : 15">
+                </div>
+                <button type="button" class="btn btn-primary" id="set">Set</button>
+            </div>
         </div>
-        <button class="btn btn-primary mt-3" id="start">Start</button>
-        <button class="btn btn-primary mt-3" id="stop">Stop</button>
-        <button class="btn btn-primary mt-3" id="clear">Clear</button>
+
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -37,6 +54,15 @@
         $('#clear').on('click', function () {
             timerElement.TickWatch('clear');
         });
+
+        const displayElement = $('.display');
+        displayElement.TickWatch({
+            displayOnly: true,
+            displaySize: 2,
+        });
+        $('#set').on('click', function () {
+            displayElement.TickWatch('set', $("#number").val());
+        });
     });
 </script>
 <!--<script type="module">
@@ -56,6 +82,15 @@
         });
         $('#clear').on('click', function () {
             timerElement.TickWatch('clear');
+        });
+
+        const displayElement = $('.display');
+        displayElement.TickWatch({
+            displayOnly: true,
+            displaySize: 2,
+        });
+        $('#set').on('click', function () {
+            displayElement.TickWatch('set', $("#number").val());
         });
     });
 </script>-->

@@ -11,6 +11,8 @@ declare module "tickwatchjs" {
         endTime: string | null;
         activeCellClass: string;
         inactiveCellClass: string;
+        displayOnly: boolean;
+        displaySize: number | null;
     }
 
     type TickWatchOptions = Partial<TickWatchSettings>;

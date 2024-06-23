@@ -108,6 +108,8 @@ $(document).ready(function() {
 
 ## Example
 
+### Time Clock
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -148,16 +150,45 @@ $(document).ready(function() {
 </html>
 ```
 
+### Number display
+
+```html
+<h2 class="h2">Display</h2>
+<div class="display d-flex justify-content-center"></div>
+<div class="mb-3">
+    <label for="number" class="form-label">Number</label>
+    <input type="text" class="form-control" id="number" name="number" placeholder="Enter a number">
+</div>
+<button type="button" class="btn btn-primary" id="set">Set</button>
+
+<script>
+$(document).ready(function() {
+    const displayElement = $('.display');
+    displayElement.TickWatch({
+        displayOnly: true,
+        displaySize: 2,
+    });
+
+    $('#set').on('click', function () {
+        displayElement.TickWatch('set', $("#number").val());
+    });
+});
+</script>
+```
+
 ## Options
 
-| Option              | Type   | Default                               | Description                                                                                                                    |
-|---------------------|--------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `partsKeys`         | Array  | `['seconds', 'minutes', {hours: 24}]` | Defines each part of the clock and its maximum value. Example: `['seconds', 'minutes', {hours: 24}, {days: 31}, {month: 12}]`. |
-| `direction`         | String | 'up'                                  | The direction of the clock ('up' for count up, 'down' for count down).                                                         |
-| `startTime`         | String | null                                  | The initial time of the clock.                                                                                                 |
-| `endTime`           | String | null                                  | The end time of the clock. Used in countdown mode.                                                                             |
-| `activeCellClass`   | String | 'active-cell'                         | The class to add to the active segment of the electronic cell (e.g., red or high opacity).                                     |
-| `inactiveCellClass` | String | 'inactive-cell'                       | The class to add to the inactive segment of the electronic cell (e.g., low opacity).                                           |
+| Option              | Type    | Default                               | Description                                                                                                                    |
+|---------------------|---------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| `partsKeys`         | Array   | `['seconds', 'minutes', {hours: 24}]` | Defines each part of the clock and its maximum value. Example: `['seconds', 'minutes', {hours: 24}, {days: 31}, {month: 12}]`. |
+| `direction`         | String  | 'up'                                  | The direction of the clock ('up' for count up, 'down' for count down).                                                         |
+| `startTime`         | String  | null                                  | The initial time of the clock.                                                                                                 |
+| `endTime`           | String  | null                                  | The end time of the clock. Used in countdown mode.                                                                             |
+| `activeCellClass`   | String  | 'active-cell'                         | The class to add to the active segment of the electronic cell (e.g., red or high opacity).                                     |
+| `inactiveCellClass` | String  | 'inactive-cell'                       | The class to add to the inactive segment of the electronic cell (e.g., low opacity).                                           |
+| `displayOnly`       | Boolean | false                                 | If true, displays static numbers instead of a clock.                                                                           |
+| `displaySize`       | Number  | null                                  | Number of digits to display when `displayOnly` is true.                                                                        |
+
 
 
 ## Methods
