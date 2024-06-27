@@ -49,7 +49,7 @@ We welcome new ideas and feature requests! If you have a feature you'd like to p
 
 ## Licensing
 
-By contributing to this project, you agree that your contributions will be licensed under the project's [LICENSE]([https://github.com/your-username/tickwatch/blob/master/LICENSE](https://github.com/HichemTab-tech/TickWatch-js/blob/master/LICENSE)).
+By contributing to this project, you agree that your contributions will be licensed under the project's [LICENSE]([https://github.com/HichemTab-tech/TickWatch-js/blob/master/LICENSE](https://github.com/HichemTab-tech/TickWatch-js/blob/master/LICENSE)).
 
 ## Contact
 
