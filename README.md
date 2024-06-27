@@ -197,7 +197,8 @@ The TickWatch jQuery Plugin provides the following methods:
 
 - **`start()`**: Start the clock.
 - **`stop()`**: Stop the clock.
-- **`set(time)`**: Set the clock to a specific time.
+- **`set(time)`**: Set the clock to a specific time or set the display to a specific value.
+- **`get()`**: Get current value of the clock or the display.
 - **`clear()`**: Clear the current time and reset to the start time.
 - **`option(key, value)`**: Get or set an option dynamically.
 - **`destroy()`**: Destroy the clock instance.

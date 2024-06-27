@@ -39,6 +39,10 @@ export const TickWatch = function (options = {}, ...args) {
             }
             return results;
         },
+        get: function (results, data) {
+            results.push(data.current);
+            return results;
+        },
         clear: function (results, data) {
             data.current = data.settings.startTime;
             updateData(data);
