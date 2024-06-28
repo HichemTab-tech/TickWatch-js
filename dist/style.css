@@ -1,5 +1,5 @@
 /*
- * TickWatch-js v1.1.1
+ * TickWatch-js v1.1.2
  * (c) HichemTech
  * Released under the MIT License.
  * Github: github.com/HichemTab-tech/TickWatch-js

@@ -33,6 +33,7 @@ declare module "tickwatchjs" {
         start(results: any[], data: TickWatchData): any[];
         stop(results: any[], data: TickWatchData): any[];
         set(results: any[], data: TickWatchData, args: any[]): any[];
+        get(results: any[], data: TickWatchData): any[];
         clear(results: any[], data: TickWatchData): any[];
         option(results: any[], data: TickWatchData, args: any[]): any[];
         destroy(results: any[], data: TickWatchData): any[];
@@ -43,6 +44,7 @@ declare module "tickwatchjs" {
         (method: "start"): TickWatchResult;
         (method: "stop"): TickWatchResult;
         (method: "set", ...args: any[]): TickWatchResult;
+        (method: "get"): TickWatchResult;
         (method: "clear"): TickWatchResult;
         (method: "option", ...args: any[]): TickWatchResult;
         (method: "destroy"): TickWatchResult;
